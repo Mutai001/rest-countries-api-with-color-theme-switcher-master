@@ -41,6 +41,7 @@ function show(data) {
     document.getElementById("countries").innerHTML = tab;
 }
 
+
 // Search input
 const searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', filterCountries);
