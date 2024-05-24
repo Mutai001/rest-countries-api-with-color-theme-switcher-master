@@ -4,13 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rest-countries-api-with color-theme-master</title>
+    <title>Rest Countries API</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav>
-        <h1>Where is the world</h1>
-    </nav>
+    <div class="container">
+        <div class="header">
+            <div class="header-word">
+                <h2>Where in the world?</h2>
+            </div>
+            <div class="toggle">
+                <h5 id="darkModeToggle">Dark Mode</h5>
+            </div>
+
+        </div>
+        <div class="search-countries">
+            <div class="spinner">
+                <div class="spinner-border" role="status" id="loading">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div class="search-bar">
+                <div class="search-input">
+                    <input type="text" id="searchInput" placeholder="Search for a country..." />
+                </div>
+                <div class="search-filter">
+                    <select id="search" name="Filter by Region">
+                        <option value="all">All Regions</option>
+                        <option value="Africa">Africa</option>
+                        <option value="America">America</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                </div>
+            </div>
+            <div id="countries">
+                <!-- Sample country category structure for reference -->
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
 </body>
 
 </html>
