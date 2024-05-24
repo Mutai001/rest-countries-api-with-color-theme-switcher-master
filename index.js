@@ -65,3 +65,25 @@ function filterCountries() {
         }
     }
 }
+
+
+
+
+// Change theme
+function changeTheme() {
+    document.body.classList.toggle('darkmode');
+    document.querySelector('.container').classList.toggle('darkmode');
+    document.querySelector('.header').classList.toggle('darkmode');
+    document.querySelector('.search-countries').classList.toggle('darkmode');
+    document.querySelector('.search-bar').classList.toggle('darkmode');
+    document.querySelector('#countries').classList.toggle('darkmode');
+
+    const inputs = document.querySelectorAll('input[type="text"], input[type="search"]');
+    inputs.forEach(input => input.classList.toggle('darkmode'));
+
+    const selects = document.querySelectorAll('select');
+    selects.forEach(select => select.classList.toggle('darkmode'));
+
+    const countryCategories = document.querySelectorAll('.country-category');
+    countryCategories.forEach(category => category.classList.toggle('darkmode'));
+}
