@@ -1,17 +1,22 @@
-const restapi_url = 'https://restcountries.com/v3.1/all';
-
+// Change this to the path of your local JSON file
+const localJsonUrl = 'data.json';
 
 async function getapi(url) {
-    const response = await fetch(url);
-    let data = await response.json();
-    console.log(data);
-    if (response) {
-        hideloader();
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        if (response) {
+            hideloader();
+        }
+        show(data);
+    } catch (error) {
+        console.error('Error fetching the JSON file:', error);
     }
-    show(data);
 }
 
-getapi(restapi_url);
+// Call the getapi function with the local JSON file URL
+getapi(localJsonUrl);
 
 function hideloader() {
     document.getElementById('loading').style.display = 'none';
@@ -23,12 +28,12 @@ function show(data) {
     for (const r of data) {
         tab += `
         <div class="country-category">
-            <a href="country.html" class="country-link" data-code="${r.cca2}">
+            <a href="country.html" class="country-link" data-code="${r.alpha2Code}">
                 <div class="country-image">
                     <img src=${r.flags.png} width="330" height="230"/>   
                 </div>
                 <div class="country-data">
-                    <h3>${r.name.official}</h3>
+                    <h3>${r.name}</h3>
                     <p><b>Population</b>: ${r.population}</p>
                     <p><b>Region</b>: ${r.region}</p>
                     <p><b>Capital</b>: ${r.capital}</p>
@@ -40,7 +45,6 @@ function show(data) {
 
     document.getElementById("countries").innerHTML = tab;
 }
-
 
 // Search input
 const searchInput = document.getElementById('searchInput');
@@ -66,9 +70,6 @@ function filterCountries() {
         }
     }
 }
-
-
-
 
 // Change theme
 function changeTheme() {
